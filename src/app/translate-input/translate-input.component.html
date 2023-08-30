@@ -1,4 +1,4 @@
-<form>
-  <input type="text" name="translate-input" placeholder="Enter text to translate...">
+<form (submit)="onSubmit($event)">
+  <input type="text" [formControl]="translateInput" placeholder="Enter text to translate...">
   <button type="submit">Translate</button>
 </form>

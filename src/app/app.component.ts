@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { TranslateInputComponent } from './translate-input/translate-input.component';
 import { TranslateOutputComponent } from './translate-output/translate-output.component';
+import { TranslateService } from './translate.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,15 @@ import { TranslateOutputComponent } from './translate-output/translate-output.co
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  textToTranslate = "";
+  textToTranslate = "Boo";
   translatedText = "This is the translated text from the parent component";
+  translateService : TranslateService = inject(TranslateService);
+
+  constructor(){
+    this.translateService.translateText(this.textToTranslate).then(text => {
+      console.log(text);
+      this.translatedText = text;
+    })
+  }
 
 }
