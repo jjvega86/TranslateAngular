@@ -12,12 +12,13 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 })
 export class TranslateInputComponent {
   translateInput = new FormControl('');
+  @Output() translatedEvent = new EventEmitter<string | null>();
 
   onSubmit(event : any){
     event.preventDefault();
     console.log("Form submitted!", event)
     console.log(this.translateInput.value);
+    this.translatedEvent.emit(this.translateInput.value)
     this.translateInput.setValue("");
-
   }
 }

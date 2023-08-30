@@ -17,11 +17,14 @@ export class AppComponent {
   translatedText = "This is the translated text from the parent component";
   translateService : TranslateService = inject(TranslateService);
 
-  constructor(){
-    this.translateService.translateText(this.textToTranslate).then(text => {
-      console.log(text);
-      this.translatedText = text;
+  translateText(text : string | null){
+    if (text === null){
+      return
+    }
+    this.translateService.translateText(text).then(translateText => {
+      console.log(translateText);
+      this.translatedText = translateText;
     })
-  }
 
+  }
 }
