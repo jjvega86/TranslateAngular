@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,5 +9,6 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./translate-input.component.css']
 })
 export class TranslateInputComponent {
+  @Output() formData = new EventEmitter<any>();
 
 }

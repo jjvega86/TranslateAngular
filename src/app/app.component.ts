@@ -12,5 +12,7 @@ import { TranslateOutputComponent } from './translate-output/translate-output.co
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'translate';
+  textToTranslate = "";
+  translatedText = "This is the translated text from the parent component";
+
 }
